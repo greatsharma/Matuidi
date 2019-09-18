@@ -1,0 +1,118 @@
+intents:
+- greet:
+    triggers: utter_greet
+- paper_search
+- paper_search+send_link
+- paper_search+send_authors
+- paper_search+send_year
+- paper_search+send_pages
+- paper_search+send_authors+send_link
+- paper_search+send_authors+send_year
+- paper_search+send_authors+send_pages
+- paper_search+send_year+send_pages
+- paper_search+send_authors+send_year+send_pages
+- paper_search+send_all
+- send_authors+send_link
+- send_authors+send_year
+- send_authors+send_pages
+- send_year+send_pages
+- send_authors+send_pages+send_year
+- send_all
+- paper_category
+- send_stats
+- send_paper_domain:
+    triggers: action_show_paper_domain
+- send_year:
+    triggers: action_show_year
+- send_pages:
+    triggers: action_show_pages
+- send_link:
+    triggers: action_show_link
+- send_authors:
+    triggers: action_show_authors
+- show_more_papers:
+    triggers: action_show_more_papers
+- affirm
+- affirm+send_authors
+- deny
+- goodbye:
+    triggers: utter_goodbye
+- show_pages
+- show_year
+entities:
+- paper_type
+- name
+slots:
+  counter:
+    type: text
+    initial_value: '0'
+  image_loc:
+    type: unfeaturized
+  paper_authors:
+    type: list
+  paper_domain:
+    type: list
+  paper_links:
+    type: list
+  paper_pages:
+    type: list
+  paper_titles:
+    type: list
+  paper_type:
+    type: text
+  paper_years:
+    type: list
+  total_papers:
+    type: text
+templates:
+  utter_greet:
+  - text: Hey! I am paper search assistant Matuidi. How can I help?
+  - text: Hello :) How can I help?
+  - text: Hey 😃 I missed you a lot pal 😓
+  - text: Hey :) welcome I am your paper search assistant Matuidi 💁
+  - text: Hey :) you are at the right place.
+  - text: Helloo :) what is your need pal?
+  utter_goodbye:
+  - text: You look in hurry. Bye!
+  - text: Have a good day {name} 😊
+  - text: Bye, you know where to find me 😉
+  - text: Catch you on the flip side, whatever that means 😜
+  - text: Bye, I will miss you {name} 😔
+  - text: Bye for now, call when you need something 😊
+  - text: Take care! 😊
+  - text: Why? What happend? Don't you like me?
+  - text: "OK, it's seems like you are not interested in papers anymore \n\nByee and\
+      \ have a good day \U0001F60A"
+  utter_default:
+  - text: I'm afraid I can't help with that
+  - text: I'm trying, but I'm not sure. Maybe you can say it a different way
+  - text: I'm not sure I understood but I'm learning 🎓
+  - text: I'm trying, but I'm not sure. Maybe you can say it a different way
+  - text: What you are aiming for? Can you be more precise.
+  utter_what_type:
+  - text: What type of paper would you like me to find?
+  - text: What type of paper you are interseted in?
+  utter_deny:
+  - text: Ok
+  utter_show_stats:
+  - text: stats
+    image:
+      image_loc:
+actions:
+- action_show_link
+- action_show_authors
+- action_ask_for_authors
+- action_ask_for_link
+- action_show_year
+- action_show_pages
+- action_show_paper_domain
+- action_show_all
+- action_make_stats
+- action_paper_search
+- action_show_more_papers
+- utter_greet
+- utter_goodbye
+- utter_what_type
+- utter_default
+- utter_deny
+- utter_show_stats

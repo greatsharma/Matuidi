@@ -1,0 +1,31 @@
+language: en
+pipeline:
+  - name: "SpacyNLP"
+  - name: "SpacyTokenizer"
+  - name: "SpacyFeaturizer"
+  - name: "CRFEntityExtractor"
+  - name: "CountVectorsFeaturizer" # featurizes text based on words.
+  - name: "CountVectorsFeaturizer" # featurizes text based on character n-grams, preserving word boundaries.
+    analyzer: "char_wb"
+    min_ngram: 1
+    max_ngram: 5
+  - name: "EmbeddingIntentClassifier"
+    intent_tokenization_flag: true
+    intent_split_symbol: "+"
+
+policies:
+  - name: MappingPolicy
+  
+  - name: MemoizationPolicy
+    max_history: 3
+  
+  - name: KerasPolicy
+    epochs: 225
+    max_history: 3
+    batch_size: 16
+    augmentation_factor: 100
+  
+  - name: FallbackPolicy
+    nlu_threshold: 0.2
+    core_threshold: 0.1
+    fallback_action_name: 'utter_default'

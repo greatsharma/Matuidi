@@ -1,0 +1,4 @@
+rasa==1.0.9
+spacy
+
+# python -m spacy download en
