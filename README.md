@@ -38,4 +38,4 @@ Built using Rasa
         rasa run actions
     start ngrok in new terminal:
         ./ngrok http 5002
-    export RASA_X_HOSTNAME=https://3a73a75b.ngrok.io; rasa x
+    export RASA_X_HOSTNAME=https://{number you get after running ngrok}.ngrok.io; rasa x
