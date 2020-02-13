@@ -1,7 +1,5 @@
 # Matuidi
-The Paper Search Assistant
-Built using Rasa
-
+Matuidi, a closed-domain generative-based paper-search assistant using RASA, using both Rasa NLU( for nlu part ) and Rasa Core( for dialogue management part ). It gives paper of your interest and all details about it like authors, year of release, no. of pages, link to the paper etc. It will soon be integrated with telegram.
 
 ### nlu model: 
     train nlu:
